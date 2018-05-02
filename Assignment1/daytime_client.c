@@ -4,7 +4,7 @@
 #include <arpa/inet.h> // inet_pton()
 #include <string.h> // memset()
 #include <unistd.h> // close()
-#include <netdb.h>
+#include <netdb.h> // getaddrinfo()
 
 #define BUFSIZE 1024
 
