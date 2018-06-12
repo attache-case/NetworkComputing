@@ -14,7 +14,7 @@
 int main() {
 
     int sock0;
-    struct sockaddr_in client;
+//    struct sockaddr_in client;
     socklen_t len;
     int sock;
     int yes = 1;
