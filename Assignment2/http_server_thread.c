@@ -80,7 +80,7 @@ int main() {
     
     for (;;) {
         sock = accept(sock0, (struct sockaddr *)&client, &len);
-        pthread_create(&tid, NULL, &doit, (void)sock);
+        pthread_create(&tid, NULL, &doit, (void *)sock);
     }
     
     close(sock0);
