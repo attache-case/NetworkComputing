@@ -66,7 +66,7 @@ int main() {
     for (i=0; i < FD_SETSIZE; i++) {
         client[i] = -1;
     }
-    FD_ZERO(&readfds)
+    FD_ZERO(&readfds);
     FD_SET(sock0, &readfds);
     
     for (;;) {
