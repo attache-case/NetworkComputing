@@ -9,10 +9,6 @@
 
 #define BUFSIZE 2048
 
-typedef struct {
-    int sock;
-} sock_t;
-
 void do_task(int sock) {
     char buf[BUFSIZE];
     char inbuf[BUFSIZE];
@@ -31,9 +27,10 @@ void do_task(int sock) {
 }
 
 static void *doit(void *sock) {
+    int *isock = (int *)sock;
     pthread_detach(pthread_self());
-    do_task(*sock);
-    close(*sock);
+    do_task(*isock);
+    close(*isock);
     return(NULL);
 }
 
