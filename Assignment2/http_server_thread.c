@@ -9,6 +9,10 @@
 
 #define BUFSIZE 2048
 
+typedef struct {
+    int sock;
+} sock_t;
+
 void do_task(int sock) {
     char buf[BUFSIZE];
     char inbuf[BUFSIZE];
@@ -28,8 +32,8 @@ void do_task(int sock) {
 
 static void *doit(void *sock) {
     pthread_detach(pthread_self());
-    do_task((int) sock);
-    close((int) sock);
+    do_task(*sock);
+    close(*sock);
     return(NULL);
 }
 
@@ -79,8 +83,8 @@ int main() {
     pthread_t tid;
     
     for (;;) {
-        sock = accept(sock0, (struct sockaddr *)&client, &len);
-        pthread_create(&tid, NULL, &doit, (void *)sock);
+        sock = (sock_t)accept(sock0, (struct sockaddr *)&client, &len);
+        pthread_create(&tid, NULL, &doit, (void *)&sock);
     }
     
     close(sock0);
