@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     strcpy(filenamebuf, path);
     while (filenamebuf != NULL) {
         strcpy(filename, filenamebuf);
-        filenamebuf = strchr(filenamebuf, "/");
+        filenamebuf = (char *) strchr(filenamebuf, "/");
     }
     fp = fopen(filename, "w");
     while ( 1 ) {
