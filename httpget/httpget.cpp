@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
                     r_head = 0;
                 }
             } else {
-                if ( buf[i] != '\r' ) fprintf(fp, "%c", buf[i]); //write(1,buf+i,1);
+                if ( buf[i] != '\r' ) {fprintf(fp, "%c", buf[i]); write(1,buf+i,1);}
             }
         }
     }
