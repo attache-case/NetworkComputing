@@ -34,10 +34,12 @@ int main(int argc, char *argv[])
     FILE *fp;
     char filename[URL_LEN];
     char filenamebuf[URL_LEN];
+    char* filenamepointer;
     strcpy(filenamebuf, path);
+    filenamepointer = filenamebuf;
     while (filenamebuf != NULL) {
-        strcpy(filename, filenamebuf);
-        filenamebuf = strchr(filenamebuf, '/');
+        strcpy(filename, filenamepointer);
+        filenamepointer = strchr(filenamepointer, '/');
     }
     fp = fopen(filename, "w");
     while ( 1 ) {
